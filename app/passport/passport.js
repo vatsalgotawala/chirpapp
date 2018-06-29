@@ -32,7 +32,7 @@ module.exports = function(app, passport){
 	passport.use(new FacebookStrategy({
 	    clientID: '1018036311682463',
 	    clientSecret: '15a806282da40502784ba7dba069c3e3',
-	    callbackURL: "http://localhost:8080/auth/facebook/callback",
+	    callbackURL: "https://mysterious-atoll-18702.herokuapp.com/auth/facebook/callback",
 	    profileFields: ['id', 'displayName', 'photos', 'email']
   	},
   	function(accessToken, refreshToken, profile, done) {
@@ -54,7 +54,7 @@ module.exports = function(app, passport){
 	passport.use(new GoogleStrategy({
 	    clientID: '278685218011-q6ug1utlp1pltrm27ib2j967fh5o3tet.apps.googleusercontent.com',
 	    clientSecret: 'AZqLarwqNNr6vmdlEE2-2F5S',
-	    callbackURL: "http://localhost:8080/auth/google/callback"
+	    callbackURL: "https://mysterious-atoll-18702.herokuapp.com/auth/google/callback"
 	},
 	function(accessToken, refreshToken, profile, done) {
             User.findOne({ email: profile.emails[0].value }).select('username active password email').exec(function(err, user) {

@@ -72,10 +72,10 @@ module.exports = function(router) {
 					  	subject: 'Chirp Activation Link',
 					  	text: 'Hello ' + user.name + ', thank you for registering at Chirp.com.' +
 					  	' Please click on the following link to complete your activation: ' +
-					  	'http://Chirp:8080/activate/' + user.temporarytoken,
+					  	'https://mysterious-atoll-18702.herokuapp.com/activate/' + user.temporarytoken,
 					  	html: 'Hello <strong>' + user.name + '</strong>,<br><br>Thank you for registering at Chirp.com.' +
 					  	' Please click on the link below to complete your activation:<br><br>' +
-					  	'<a href="http://Chirp:8080/activate/' + user.temporarytoken + '">http://Chirp:8080/activate/</a>'
+					  	'<a href="https://mysterious-atoll-18702.herokuapp.com/activate/' + user.temporarytoken + '">https://mysterious-atoll-18702.herokuapp.com/activate/</a>'
 					};
 
 					client.sendMail(email, function(err, info){
@@ -326,10 +326,10 @@ module.exports = function(router) {
 					  	subject: 'Chirp Activation Link Request',
 					  	text: 'Hello ' + user.name + ', you recently requested a new account activation link.' +
 					  	' Please click on the following link to complete your activation: ' +
-					  	'http://Chirp:8080/activate/' + user.temporarytoken,
+					  	'https://mysterious-atoll-18702.herokuapp.com/activate/' + user.temporarytoken,
 					  	html: 'Hello <strong>' + user.name + '</strong>,<br><br>You recently requested a new account activation link.' +
 					  	' Please click on the link below to complete your activation:<br><br>' +
-					  	'<a href="http://Chirp:8080/activate/' + user.temporarytoken + '">http://Chirp:8080/activate/</a>'
+					  	'<a href="https://mysterious-atoll-18702.herokuapp.com/activate/' + user.temporarytoken + '">https://mysterious-atoll-18702.herokuapp.com/activate/</a>'
 					};
 
 					client.sendMail(email, function(err, info){
@@ -413,10 +413,10 @@ module.exports = function(router) {
 						  	subject: 'Chirp Reset Password Request',
 						  	text: 'Hello ' + user.name + ', you recently request a password reset link.' +
 						  	' Please click on the link below to reset your password: ' +
-						  	'http://Chirp:8080/reset/' + user.resettoken,
+						  	'https://mysterious-atoll-18702.herokuapp.com/reset/' + user.resettoken,
 						  	html: 'Hello <strong>' + user.name + '</strong>,<br><br>You recently request a password reset link.' +
 						  	' Please click on the link below to reset your password:<br><br>' +
-						  	'<a href="http://Chirp:8080/reset/' + user.resettoken + '">http://Chirp:8080/reset/</a>'
+						  	'<a href="https://mysterious-atoll-18702.herokuapp.com/reset/' + user.resettoken + '">https://mysterious-atoll-18702.herokuapp.com/reset/</a>'
 						};
 
 						client.sendMail(email, function(err, info){
