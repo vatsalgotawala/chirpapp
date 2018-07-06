@@ -15,21 +15,21 @@
 	<div class="form-group">
 		<input type="text" class="form-control" name="searchByUsername" placeholder="Search by..." ng-model="searchByUsername">
 	</div>
-	<button type="button" class="btn btn-default">Username</button>
+	<label>&nbspUsername</label>
 </div>
 
 <div class="navbar-form">
 	<div class="form-group">
 		<input type="text" class="form-control" name="searchByEmail" placeholder="Search by..." ng-model="searchByEmail">
 	</div>
-	<button type="button" class="btn btn-default">E-mail</button>
+	<label>&nbspE-mail</label>
 </div>
 
 <div class="navbar-form">
 	<div class="form-group">
 		<input type="text" class="form-control" name="searchByName" placeholder="Search by..." ng-model="searchByName">
 	</div>
-	<button type="button" class="btn btn-default">Name</button>
+	<label>&nbspName</label>
 </div>
 
 <div class="navbar-form">
@@ -54,40 +54,44 @@
 
 <br>
 
-<div ng-show="management.searchLimit === undefined">
-	<p><strong>Results : </strong>{{(management.users | filter: advancedSearchFilter | limitTo: management.searchLimit).length}}</p>
-</div>
-
-<div ng-show="management.sort">
-	<p><strong>Sort by : </strong>{{ management.sort }}</p>
-</div>
-
-<br>
-<br>
-
-<div class="panel panel-primary">
-	<div class="panel-heading">
-		<strong>User Management</strong>
+<div class="navbar-form">
+	<div ng-show="management.searchLimit === undefined">
+		<p><strong>Results : </strong>{{(management.users | filter: advancedSearchFilter | limitTo: management.searchLimit).length}}</p>
 	</div>
-	<table class="table">
-		<tr>
-			<th>Name</th>
-			<th>Username</th>
-			<th>Email</th>
-		</tr>
-		<tr ng-repeat="person in management.users | filter: advancedSearchFilter | limitTo: management.searchLimit | orderBy: management.sort">
-			<td>{{person.name}}</td>
-			<td>{{person.username}}</td>
-			<td>{{person.email}}</td>
-			<td>
-				<a href="/edit/{{person._id}}">
-					<button type="button" ng-show="management.editAccess" class="btn btn-primary">Edit</button>
-				</a>
-				<button type="button" ng-click="management.deleteUser(person.username);" ng-show="management.deleteAccess" class="btn btn-danger">Delete</button>
-				
-			</td>
-		</tr>
-	</table>
+
+	<div ng-show="management.sort">
+		<p><strong>Sort by : </strong>{{ management.sort }}</p>
+	</div>
+
+	<br>
+	<br>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<strong>User Management</strong>
+		</div>
+		<table class="table">
+			<tr>
+				<th>Name</th>
+				<th>Username</th>
+				<th>Email</th>
+			</tr>
+			<tr ng-repeat="person in management.users | filter: advancedSearchFilter | limitTo: management.searchLimit | orderBy: management.sort">
+				<td>{{person.name}}</td>
+				<td>{{person.username}}</td>
+				<td>{{person.email}}</td>
+				<td>
+					<a href="/edit/{{person._id}}">
+						<button type="button" ng-show="management.editAccess" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span>&nbsp Edit</button>
+					</a>
+				</td>
+				<td>
+					<button type="button" ng-click="management.deleteUser(person.username);" ng-show="management.deleteAccess" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp Delete</button>
+					
+				</td>
+			</tr>
+		</table>
+	</div>
 </div>
 
 

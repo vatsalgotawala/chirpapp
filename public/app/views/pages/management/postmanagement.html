@@ -11,30 +11,33 @@
 
 <br>
 
-<button type="button" ng-click="postmanagement.showMore(number);" class="btn btn-success">Apply Filter</button>
-<button type="button" ng-click="postmanagement.showAll();" class="btn btn-warning">Show All</button>
-<div class="showmore">
-	<div class="col-lg-6">
-		<div class="input-group">
-			<span class="input-group-addon">Number of results to display:</span>
-			<input type="text" class="form-control" ng-model="number">
+<div class="navbar-form">
+	<div class="row">
+		<div class="col-md-6 col-lg-4">
+			<div class="input-group">
+				<span class="input-group-addon">Number of results to display:</span>
+				<input type="text" class="form-control" ng-model="number">
+			</div>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<button type="button" ng-click="postmanagement.showMore(number);" class="btn btn-success">Apply Filter</button>
+			<button type="button" ng-click="postmanagement.showAll();" class="btn btn-warning">Show All</button>
 		</div>
 	</div>
 </div>
-
 
 <div class="navbar-form">
 	<div class="form-group">
 		<input type="text" class="form-control" name="searchByUsername" placeholder="Search by..." ng-model="searchByUsername">
 	</div>
-	<button type="button" class="btn btn-default">Username</button>
+	<label>&nbspUsername</label>
 </div>
 
 <div class="navbar-form">
 	<div class="form-group">
 		<input type="text" class="form-control" name="searchByText" placeholder="Search by..." ng-model="searchByText">
 	</div>
-	<button type="button" class="btn btn-default">Text</button>
+	<label>&nbspPost</label>
 </div>
 
 <div class="navbar-form">
@@ -46,42 +49,46 @@
 
 <div class="navbar-form">
 	<div ng-show="postmanagement.searchLimit === undefined">
-		<p><strong>Results : </strong>{{(posts | filter: advancedSearchFilter | limitTo: postmanagement.searchLimit).length}}</p>
+		<p><strong>Total results found : </strong>{{(posts | filter: advancedSearchFilter).length}}</p>
 	</div>
-</div>
 
-
-<br>
-
-<div class="row show-hide-message" ng-show="postmanagement.showMoreError">
-	<div class="alert alert-danger">{{postmanagement.showMoreError}}</div>
-</div>
-
-<br>
-
-<div class="panel panel-primary">
-	<div class="panel-heading">
-		<strong>Post management</strong>
+	<div ng-show="postmanagement.searchLimit === undefined">
+		<p><strong>Results showing : </strong>{{(posts | filter: advancedSearchFilter | limitTo: postmanagement.limit).length}}</p>
 	</div>
-	<table class="table">
-		<tr>
-			<th>Posts</th>
-		</tr>
-		<tr class="post" ng-repeat="post in posts | filter: advancedSearchFilter | orderBy:'created_at':true | limitTo: postmanagement.limit" ng-class-odd="'odd'" ng-class-even="'even'">
-			<td>
-				<p>{{post.text}}</p>
-			    <small>Posted by @{{post.created_by}}</small>
-			    <small class="pull-right">{{post.created_at | date:"h:mma 'on' MMM d, y"}}</small>
-			</td>
-			<td align="center">
-				<!--<a href="/edit/{{person._id}}">
-					<button type="button" ng-show="postmanagement.editAccess" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span>&nbsp Edit</button>
-				</a>-->
-				<button type="button" ng-click="postmanagement.deletePost(post._id);" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp Delete</button>
-				
-			</td>
-		</tr>
-	</table>
+
+
+	<br>
+
+	<div class="row show-hide-message" ng-show="postmanagement.showMoreError">
+		<div class="alert alert-danger">{{postmanagement.showMoreError}}</div>
+	</div>
+
+	<br>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<strong>Post management</strong>
+		</div>
+		<table class="table">
+			<tr>
+				<th>Post Text</th>
+				<th>Posted by</th>
+				<th>Posted on</th>
+			</tr>
+			<tr class="post" ng-repeat="post in posts | filter: advancedSearchFilter | orderBy:'created_at':true | limitTo: postmanagement.limit" ng-class-odd="'odd'" ng-class-even="'even'">
+				<td>{{post.text}}</td>
+				<td>{{post.created_by}}</td>
+				<td>{{post.created_at | date:"h:mma 'on' MMM d, y"}}</td>
+				<td>
+					<!--<a href="/edit/{{person._id}}">
+						<button type="button" ng-show="postmanagement.editAccess" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span>&nbsp Edit</button>
+					</a>-->
+					<button type="button" ng-click="postmanagement.deletePost(post._id);" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp Delete</button>
+					
+				</td>
+			</tr>
+		</table>
+	</div>
 </div>
 
 <br>

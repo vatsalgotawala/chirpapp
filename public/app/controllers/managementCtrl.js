@@ -70,6 +70,7 @@ angular.module('managementController', [])
 
 	app.search = function(searchKeyword,number){
 		if(searchKeyword){
+			$scope.number = undefined;
 			if(searchKeyword.length>0){
 				app.limit = 0;
 				$scope.searchFilter = searchKeyword;
@@ -78,18 +79,19 @@ angular.module('managementController', [])
 			}
 			else{
 				$scope.searchFilter = undefined;
-				app.limit = 0;
+				app.limit = undefined;
 			}
 		}
 		else{
+			$scope.number = undefined;
 			$scope.searchFilter = undefined;
-			app.limit = 0;
+			app.limit = undefined;
 		}
 	};
 
 	app.clear = function(){
 		$scope.number = undefined;
-		app.limit = 0;
+		app.limit = 5;
 		$scope.searchKeyword = undefined;
 		$scope.searchFilter = undefined;
 		app.showMoreError = false;
@@ -107,6 +109,9 @@ angular.module('managementController', [])
 			if(searchByName){
 				$scope.advancedSearchFilter.name = searchByName;
 			}
+			app.searchLimit = undefined;
+		}
+		else{
 			app.searchLimit = undefined;
 		}
 	};
@@ -408,6 +413,7 @@ angular.module('managementController', [])
 	app.advancedSearch = function(searchByUsername, searchByText){
 		if(searchByUsername || searchByText){
 			$scope.advancedSearchFilter = {};
+			app.limit = undefined;
 			if(searchByUsername){
 				$scope.advancedSearchFilter.created_by = searchByUsername;
 			}
@@ -415,12 +421,17 @@ angular.module('managementController', [])
 				$scope.advancedSearchFilter.text = searchByText;
 			}
 			app.searchLimit = undefined;
+			$scope.number = undefined;
+		}
+		else{
+			app.limit = undefined;
+			$scope.number = undefined;
 		}
 	};
 
 	app.advancedClear = function(){
 		$scope.number = undefined;
-		app.limit = 0;
+		app.limit = undefined;
 		$scope.searchByUsername = undefined;
 		$scope.searchByText = undefined;
 		app.searchLimit = 0;
