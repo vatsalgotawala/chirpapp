@@ -83,6 +83,10 @@ header.navbar{
 	float: right;
 }
 
+.resize{
+  float: right;
+}
+
 .spinner{
 	-webkit-animation:spin 1s infinite;
 	-moz-animation:spin 1s infinite;
@@ -104,3 +108,21 @@ header.navbar{
 	to {-moz-transform: rotate(360deg);}
 }
 
+@media screen and (max-width: 600px) {
+  .reset{
+    float: left;
+    display: block;
+  }
+  .post{
+    padding-bottom: 25px;
+  }
+  .resize{
+    float: left;
+    display: block;
+    position: absolute;
+  }
+}
+
+@media (max-width: @screen-xs-min) {
+  .modal-xs { width: @modal-sm; }
+}

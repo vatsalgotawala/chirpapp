@@ -1,5 +1,4 @@
-<br><br><br>
-<div class="container">
+<div class="col-xs-12 col-md-12 col-lg-12">
   <form ng-Submit="post()" ng-show="main.isLoggedIn">
     <h3>{{main.username}} says</h3>
     <textarea required class="form-control" maxlength="200" rows="3" placeholder="Say something..." ng-model="newPost.text"></textarea><br>
@@ -9,12 +8,12 @@
   <br>
   <br>
 
-<div id="post-stream">
-  <h3>Chirp Feed</h3>
-    <div class="post" ng-repeat="post in posts | orderBy:'created_at':true" ng-class-odd="'odd'" ng-class-even="'even'"> 
-      <p>{{post.text}}</p>
-      <small>Posted by @{{post.created_by}}</small>
-      <small class="pull-right">{{post.created_at | date:"h:mma 'on' MMM d, y"}}</small>
-    </div>
-</div>
+  <div id="post-stream">
+    <h3>Chirp Feed</h3>
+      <div class="post" ng-repeat="post in posts | orderBy:'created_at':true" ng-class-odd="'odd'" ng-class-even="'even'"> 
+        <p>{{post.text}}</p>
+        <small>Posted by @{{post.created_by}}</small>
+        <small class="resize">{{post.created_at | date:"h:mma 'on' MMM d, y"}}</small>
+      </div>
+  </div>
 </div>
