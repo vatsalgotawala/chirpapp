@@ -50,7 +50,7 @@
         </div>
       </div>
 
-      <a ng-class="{ active: isActive('/profile')}" ng-show="main.isLoggedIn" href="/profile"><span class="glyphicon glyphicon-user"></span>&nbsp Hello {{main.username}}</a>
+      <a ng-class="{ active: isActive('/profile')}" ng-show="main.isLoggedIn" href="/profile"><span class="glyphicon glyphicon-user"></span>&nbsp Hello {{main.name}}</a>
 
       <a class="reg" ng-class="{ active: isActive('/register')}" ng-show="!main.isLoggedIn" href="/register">Register</a>   
       <a class="reg" ng-class="{ active: isActive('/login')}" ng-show="!main.isLoggedIn" href="/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp Login</a>
