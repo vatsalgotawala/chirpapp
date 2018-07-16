@@ -83,6 +83,10 @@ header.navbar{
 	float: right;
 }
 
+.small{
+  display: none;
+}
+
 .resize{
   float: right;
 }
@@ -120,6 +124,15 @@ header.navbar{
     float: left;
     display: block;
     position: absolute;
+  }
+  .large{
+    display: none;
+  }
+  .small{
+    display: table;
+  }
+  .small button{
+    margin-top: 10px;
   }
 }
 

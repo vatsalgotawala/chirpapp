@@ -41,7 +41,7 @@
       <a ng-class="{ active: isActive('/')}" href="/"><span class="glyphicon glyphicon-home"></span>&nbsp Home</a>
 
       <div class="dropdown">
-        <button class="dropbtn" ng-class="{ active: isActive('/postmanagement')}" ng-show="main.isLoggedIn && main.authorized" ng-click="main.showDropDown();">
+        <button class="dropbtn" ng-class="{ active: isActive('/postmanagement')}" ng-show="main.isLoggedIn && main.authorized" ng-click="main.showDropDown();"><span class="glyphicon glyphicon-wrench"></span>&nbsp
           Manage&nbsp <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
@@ -52,8 +52,9 @@
 
       <a ng-class="{ active: isActive('/profile')}" ng-show="main.isLoggedIn" href="/profile"><span class="glyphicon glyphicon-user"></span>&nbsp Hello {{main.name}}</a>
 
-      <a class="reg" ng-class="{ active: isActive('/register')}" ng-show="!main.isLoggedIn" href="/register">Register</a>   
+      <a class="reg" ng-class="{ active: isActive('/register')}" ng-show="!main.isLoggedIn" href="/register"><span class="glyphicon glyphicon-check"></span>&nbsp Register</a>   
       <a class="reg" ng-class="{ active: isActive('/login')}" ng-show="!main.isLoggedIn" href="/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp Login</a>
+      
       <a class="reg" ng-show="main.isLoggedIn" href="#" ng-click="main.logout();"><span class="glyphicon glyphicon-log-out"></span>&nbsp Logout</a>
 
       <a href="#" class="icon" ng-click="main.myFunction();">
